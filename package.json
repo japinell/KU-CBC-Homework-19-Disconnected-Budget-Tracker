@@ -1,18 +1,21 @@
 {
-  "name": "ku-cbc-homework-19-disconnected-budget-tracker",
+  "name": "budget-app",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch",
+    "webpack": "webpack",
+    "prestart": "npm run webpack",
+    "lite-server": "lite-server",
     "start": "node server.js",
-    "lite-server": "lite-server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coding-boot-camp/unit18hw.git"
   },
-  "author": "",
+  "author": "Jose A. Pinell",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/coding-boot-camp/unit18hw/issues"
@@ -24,5 +27,14 @@
     "lite-server": "^2.5.3",
     "mongoose": "^5.5.15",
     "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.32.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-pwa-manifest": "^4.0.0"
   }
 }
