@@ -84,7 +84,7 @@ request.onsuccess = function (e) {
 };
 
 // Write a transactions to the local database
-const saveRecord = (record) => {
+export const saveRecord = (record) => {
   console.log("Save record invoked");
   // Open a connection to the transactions storage in read/write mode
   const transaction = db.transaction(["transactions"], "readwrite");

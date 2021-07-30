@@ -75,7 +75,7 @@ function sendTransaction(isAdding) {
         amountEl.value = "";
       }
     })
-    .catch((err) => {
+    .catch(() => {
       // Fetch failed, so save in the indexed (local) db
       saveRecord(transaction);
 

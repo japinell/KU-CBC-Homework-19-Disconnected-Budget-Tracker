@@ -7,8 +7,6 @@ const Transaction = require("../models/transaction.js");
 //  Handles inserting a transaction to the database
 //
 router.post("/api/transaction", ({ body }, res) => {
-  console.log("Body: ");
-  console.log(body);
   Transaction.create(body)
     .then((transaction) => {
       res.json(transaction);

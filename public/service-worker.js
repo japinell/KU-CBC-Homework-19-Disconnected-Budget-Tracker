@@ -76,7 +76,18 @@ self.addEventListener("fetch", (event) => {
   // Cache requests to resources
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
+      //return response || fetch(event.request);
+      if (response) {
+        return response;
+      }
+
+      return caches
+        .open(API_CACHE_NAME)
+        .then((cache) =>
+          fetch(event.request).then((response) =>
+            cache.put(event.request, response.clone()).then(() => response)
+          )
+        );
     })
   );
 });
