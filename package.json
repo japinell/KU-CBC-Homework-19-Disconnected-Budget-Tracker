@@ -5,11 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --watch",
-    "webpack": "webpack",
-    "prestart": "npm run webpack",
-    "lite-server": "lite-server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
