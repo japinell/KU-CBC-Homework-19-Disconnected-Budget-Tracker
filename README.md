@@ -53,9 +53,11 @@ The application also allows users to view the transaction statistics by day usin
 
 ![The application visual aspect.](./images/visual-aspect.png)
 
-![The transaction schema for the application.](./images/transaction-schema.png)
-
 On the technical side, the application showcases the following notable features:
+
+### Mongoose Schema Definition
+
+![The transaction schema for the application.](./images/transaction-schema.png)
 
 ### Express API
 
