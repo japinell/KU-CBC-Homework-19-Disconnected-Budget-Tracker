@@ -7,6 +7,7 @@ const RES_CACHE_FILES = [
   "/dist/assets/js/app.bundle.js",
   "/dist/assets/js/chart.bundle.js",
   "/dist/assets/js/dom.bundle.js",
+  "/dist/assets/js/db.bundle.js",
   "/dist/assets/css/styles.css",
   "/dist/assets/icons/icon_192x192.png",
   "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
@@ -19,7 +20,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(RES_CACHE_NAME)
-      .then(RES_(cache) => cache.addAll(CACHE_FILES))
+      .then((cache) => cache.addAll(RES_CACHE_FILES))
       .then(self.skipWaiting())
   );
 });
