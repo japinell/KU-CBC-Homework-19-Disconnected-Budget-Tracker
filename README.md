@@ -45,9 +45,11 @@ The application uses a _Transaction_ model hosted on a **NoSQL** database, **Mon
 
 ![The transaction schema for the application.](./images/transaction-schema.png)
 
-The following screenshot exemplifies some of the application APIs:
+The following screenshot exemplifies some of the application most notable API features:
 
 ![The application API definition.](./images/transaction-api.png)
+
+![The application indexed database.](./images/indexed-db.png)
 
 Functionally, the application allows users to perform the following CRUD operations:
 
