@@ -43,14 +43,6 @@ On the technical architecture, the application features the use of the MVC parad
 
 The application uses a _Transaction_ model hosted on a **NoSQL** database, **MongoDb**. The model structure includes the following fields: _name_, of type String, representing the transaction description; _value_, of type Number, representing the transaction amount; and _date_, of type Date, defaulted to now, representing the transaction date.
 
-![The transaction schema for the application.](./images/transaction-schema.png)
-
-The following screenshot exemplifies some of the application most notable API features:
-
-![The application API definition.](./images/transaction-api.png)
-
-![The application indexed database.](./images/indexed-db.png)
-
 Functionally, the application allows users to perform the following CRUD operations:
 
 - Create a transaction (debit or credit)
@@ -60,6 +52,22 @@ Functionally, the application allows users to perform the following CRUD operati
 The application also allows users to view the transaction statistics by day using an area chart.
 
 ![The application visual aspect.](./images/visual-aspect.png)
+
+![The transaction schema for the application.](./images/transaction-schema.png)
+
+On the technical side, the application showcases the following notable features:
+
+### Express API
+
+![The application API definition.](./images/transaction-api.png)
+
+### Indexed Database
+
+To enable entering deposits and expenses in disconnected mode:
+
+![The application indexed database.](./images/indexed-db.png)
+
+![The application service workder.](./images/service-worker.png)
 
 ## Installation
 

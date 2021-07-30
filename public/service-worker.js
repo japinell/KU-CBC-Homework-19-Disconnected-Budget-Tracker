@@ -1,4 +1,6 @@
 //
+//  Functions to handle resources caching
+//
 const RES_CACHE_NAME = "data-cache-v1";
 const API_CACHE_NAME = "api-cache-v1";
 const RES_CACHE_FILES = [
