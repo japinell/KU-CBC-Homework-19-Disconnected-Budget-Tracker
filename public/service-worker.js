@@ -4,8 +4,15 @@ const RUNTIME = "runtime";
 const CACHE_FILES = [
   "/",
   "/index.html",
-  "/icons/icon-192x192.png",
-  "/icons/icon-512x512.png",
+  "/dist/assets/js/app.bundle.js",
+  "/dist/assets/js/chart.bundle.js",
+  "/dist/assets/js/dom.bundle.js",
+  "/dist/assets/css/styles.css",
+  "/dist/assets/icons/icon_192x192.png",
+  "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
+  "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+  //"https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
+  //"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
 ];
 //
 // Install the service worker - Cache files
