@@ -55,8 +55,7 @@ self.addEventListener("fetch", (event) => {
       caches
         .open(API_CACHE_NAME)
         .then((cache) => {
-          console.log(event.request.url);
-          return fetch(event.request.url)
+          return fetch(event.request)
             .then((response) => {
               // Clone and store the response in the cache
               if (response.status === 200) {

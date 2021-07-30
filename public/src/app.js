@@ -11,14 +11,15 @@ fetch("/api/transaction")
   .then((response) => {
     return response.json();
   })
-  .then((data) => {
-    // Save the db data on global variable
-    transactions = data;
+  .then((response) => {
+    // Save the db response on global variable
+    transactions = response;
     // Populate user interface with records
     populateTotal(transactions);
     populateTable(transactions);
     populateChart(transactions);
   });
+
 // Post the transaction to the database
 function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
@@ -65,8 +66,8 @@ function sendTransaction(isAdding) {
     .then((response) => {
       return response.json();
     })
-    .then((data) => {
-      if (data.errors) {
+    .then((response) => {
+      if (response.errors) {
         errorEl.textContent = "Missing Information";
       } else {
         // Clear form
@@ -84,6 +85,7 @@ function sendTransaction(isAdding) {
     });
 }
 
+// Register the click even on the add and submit buttons
 document.querySelector("#add-btn").onclick = function () {
   sendTransaction(true);
 };
