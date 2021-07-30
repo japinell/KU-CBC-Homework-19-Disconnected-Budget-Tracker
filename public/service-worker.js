@@ -1,7 +1,7 @@
 //
 const RES_CACHE_NAME = "data-cache-v1";
 const API_CACHE_NAME = "api-cache-v1";
-const CACHE_FILES = [
+const RES_CACHE_FILES = [
   "/",
   "/index.html",
   "/dist/assets/js/app.bundle.js",
@@ -19,7 +19,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(RES_CACHE_NAME)
-      .then((cache) => cache.addAll(CACHE_FILES))
+      .then(RES_(cache) => cache.addAll(CACHE_FILES))
       .then(self.skipWaiting())
   );
 });
@@ -27,7 +27,7 @@ self.addEventListener("install", (event) => {
 // Activate the service worker - Take care of cleaning up old caches
 //
 self.addEventListener("activate", (event) => {
-  const RES_currentCaches = [CACHE_NAME, API_CACHE_NAME];
+  const currentCaches = [RES_CACHE_NAME, API_CACHE_NAME];
   event.waitUntil(
     caches
       .keys()
@@ -54,7 +54,8 @@ self.addEventListener("fetch", (event) => {
       caches
         .open(API_CACHE_NAME)
         .then((cache) => {
-          return fetch(event.request)
+          console.log(event.request.url);
+          return fetch(event.request.url)
             .then((response) => {
               // Clone and store the response in the cache
               if (response.status === 200) {
@@ -63,7 +64,7 @@ self.addEventListener("fetch", (event) => {
               return response;
             })
             .catch((error) => {
-              // Get the response from the cache
+              // Try to get the response from the cache
               return cache.match(event.request);
             });
         })
