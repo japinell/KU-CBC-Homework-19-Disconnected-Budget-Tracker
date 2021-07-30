@@ -1,6 +1,6 @@
 //
-const CACHE_NAME = "cache-v1";
-const RUNTIME = "runtime";
+const RES_CACHE_NAME = "data-cache-v1";
+const API_CACHE_NAME = "api-cache-v1";
 const CACHE_FILES = [
   "/",
   "/index.html",
@@ -11,8 +11,6 @@ const CACHE_FILES = [
   "/dist/assets/icons/icon_192x192.png",
   "https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
   "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
-  //"https://cdn.jsdelivr.net/npm/chart.js@2.8.0",
-  //"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
 ];
 //
 // Install the service worker - Cache files
@@ -20,7 +18,7 @@ const CACHE_FILES = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
-      .open(CACHE_NAME)
+      .open(RES_CACHE_NAME)
       .then((cache) => cache.addAll(CACHE_FILES))
       .then(self.skipWaiting())
   );
@@ -29,19 +27,17 @@ self.addEventListener("install", (event) => {
 // Activate the service worker - Take care of cleaning up old caches
 //
 self.addEventListener("activate", (event) => {
-  const currentCaches = [CACHE_NAME, RUNTIME];
+  const RES_currentCaches = [CACHE_NAME, API_CACHE_NAME];
   event.waitUntil(
     caches
       .keys()
-      .then((cacheNames) => {
-        return cacheNames.filter(
-          (cacheName) => !currentCaches.includes(cacheName)
-        );
+      .then((keyList) => {
+        return keyList.filter((key) => !currentCaches.includes(key));
       })
-      .then((cachesToDelete) => {
+      .then((keyList) => {
         return Promise.all(
-          cachesToDelete.map((cacheToDelete) => {
-            return caches.delete(cacheToDelete);
+          keyList.map((key) => {
+            return caches.delete(key);
           })
         );
       })
@@ -52,21 +48,34 @@ self.addEventListener("activate", (event) => {
 //  Fetch a resource from the server or from cache
 //
 self.addEventListener("fetch", (event) => {
-  if (event.request.url.startsWith(self.location.origin)) {
+  // Cache requests to the API
+  if (event.request.url.includes("/api/")) {
     event.respondWith(
-      caches.match(event.request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-
-        return caches.open(RUNTIME).then((cache) => {
-          return fetch(event.request).then((response) => {
-            return cache.put(event.request, response.clone()).then(() => {
+      caches
+        .open(API_CACHE_NAME)
+        .then((cache) => {
+          return fetch(event.request)
+            .then((response) => {
+              // Clone and store the response in the cache
+              if (response.status === 200) {
+                cache.put(event.request.url, response.clone());
+              }
               return response;
+            })
+            .catch((error) => {
+              // Get the response from the cache
+              return cache.match(event.request);
             });
-          });
-        });
-      })
+        })
+        .catch((error) => console.log(error))
     );
+
+    return;
   }
+  // Cache requests to resources
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
 });
