@@ -3,28 +3,29 @@
 //
 import { populateTotal, populateTable } from "./dom";
 import { populateChart } from "./chart";
+import { saveRecord } from "./db";
 //
 let transactions = [];
-
+// Fetch all transactions
 fetch("/api/transaction")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    // Save db data on global variable
+    // Save the db data on global variable
     transactions = data;
-
+    // Populate user interface with records
     populateTotal(transactions);
     populateTable(transactions);
     populateChart(transactions);
   });
-
+// Post the transaction to the database
 function sendTransaction(isAdding) {
   let nameEl = document.querySelector("#t-name");
   let amountEl = document.querySelector("#t-amount");
   let errorEl = document.querySelector(".form .error");
 
-  // validate form
+  // Validate form
   if (nameEl.value === "" || amountEl.value === "") {
     errorEl.textContent = "Missing Information";
     return;
@@ -32,27 +33,27 @@ function sendTransaction(isAdding) {
     errorEl.textContent = "";
   }
 
-  // create record
+  // Create record
   let transaction = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString(),
   };
 
-  // if subtracting funds, convert amount to negative number
+  // If subtracting funds, convert amount to negative number
   if (!isAdding) {
     transaction.value *= -1;
   }
 
-  // add to beginning of current array of data
+  // Add to beginning of current array of data
   transactions.unshift(transaction);
 
-  // re-run logic to populate ui with new record
+  // Populate user interface with new record
   populateChart(transactions);
   populateTable(transactions);
   populateTotal(transactions);
 
-  // also send to server
+  // Post transaction to to database
   fetch("/api/transaction", {
     method: "POST",
     body: JSON.stringify(transaction),
@@ -68,16 +69,16 @@ function sendTransaction(isAdding) {
       if (data.errors) {
         errorEl.textContent = "Missing Information";
       } else {
-        // clear form
+        // Clear form
         nameEl.value = "";
         amountEl.value = "";
       }
     })
     .catch((err) => {
-      // fetch failed, so save in indexed db
+      // Fetch failed, so save in the indexed (local) db
       saveRecord(transaction);
 
-      // clear form
+      // Clear form
       nameEl.value = "";
       amountEl.value = "";
     });

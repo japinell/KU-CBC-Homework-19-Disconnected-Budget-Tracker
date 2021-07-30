@@ -7,6 +7,7 @@ const config = {
     app: "./public/src/app.js",
     dom: "./public/src/dom.js",
     chart: "./public/src/chart.js",
+    db: "./public/src/db.js",
   },
   output: {
     path: __dirname + "/public/dist/assets/",

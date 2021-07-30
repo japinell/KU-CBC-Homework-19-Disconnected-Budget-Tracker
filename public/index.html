@@ -10,13 +10,11 @@
       href="dist/assets/icons/icon-192x192.png"
       type="image/x-icon"
     />
-
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="dist/assets/css/styles.css" />
-
     <title>Budget Tracker</title>
   </head>
   <body>
@@ -24,7 +22,6 @@
       <div class="total">
         <div class="total">Your total is: $<span id="total">0</span></div>
       </div>
-
       <div class="form">
         <input type="text" id="t-name" placeholder="Name of transaction" />
         <input
@@ -39,7 +36,6 @@
         <button id="sub-btn"><i class="fa fa-minus"></i> Subtract Funds</button>
         <p class="error"></p>
       </div>
-
       <div class="transactions">
         <table>
           <thead>
@@ -49,10 +45,8 @@
           <tbody id="tbody"></tbody>
         </table>
       </div>
-
       <canvas id="myChart"></canvas>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="dist/assets/js/app.bundle.js"></script>
     <!-- Register the service worker if the browser supports the feature -->
