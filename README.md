@@ -69,7 +69,7 @@ To enable entering deposits and expenses in disconnected mode:
 
 ![The application indexed database.](./images/indexed-db.png)
 
-![The application service workder.](./images/service-worker.png)
+![The application service worker.](./images/service-worker.png)
 
 ## Installation
 
