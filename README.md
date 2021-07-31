@@ -1,6 +1,8 @@
 # Unit 19 PWA Homework: Online/Offline Budget Tracker
 
-This is a **budget tracker** web application that uses **MongoDb** as the persistent storage, **Mongoose** as the object modelling, **ExpressJS** as the web framework, and **NodeJS** as the Javascript runtime environment. The application is described in the following user story, business context, and acceptance criteria:
+This is **Progressive Web Application (PWA)** to track deposits and expenses that uses **MongoDb** as the persistent storage, **Mongoose** as the object modelling, **ExpressJS** as the web framework, and **NodeJS** as the Javascript runtime environment. The application has been coded to meet the core features for a [PWA](https://web.dev/progressive-web-apps/) application, namely, it offers the potential to tap into the best features seen in **native** applications and the best features seen in **web** applications, it runs in **connected** as well as in **disconnected** mode, and it is **installable** to mobile devices without regard to system architecture (it can run in web and in Android-, iOS-, and Windows-powered devices).
+
+The application's functional features are described in the following user story, business context, and acceptance criteria:
 
 ## User Story
 
@@ -71,6 +73,12 @@ To enable entering deposits and expenses in disconnected mode:
 
 ![The application service worker.](./images/service-worker.png)
 
+### PWA Compliant
+
+The following screenshot from [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) shows the statistics for the deployed application, which also demonstrates that the application is a PWA:
+
+![The application PWA features.](./images/pwa.png)
+
 ## Installation
 
 The application requires [Node.Js](https://nodejs.org/en/) Runtime Library, [Express.js](https://www.npmjs.com/package/express), and [Mongoose](https://www.npmjs.com/package/mongoose) libraries, along with a running _local_ instance of [MongoDb](https://www.mongodb.com/), or a _cloud_ instance of **MongoDb** known as [Atlas](https://www.mongodb.com/cloud/atlas).
@@ -97,15 +105,7 @@ node server.js
 
 ## Usage
 
-The application has been coded to meet the criteria for a [Progressive Web Application (PWA)](https://web.dev/progressive-web-apps/). It brings the core features of a PWA, namely, the application is capable of offering the best features from a **native** application and a **web** application, is reliable since it can run in connected as well as in **disconnected** mode, and it is **installable** to mobile devices.
-
-The following screenshot from [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) shows the statistics for the deployed application, which also demonstrates that the application is a PWA:
-
-![The application PWA features.](./images/pwa.png)
-
-In addition, it has been coded to perform CRUD operations against a live **MongoDb** database using the following HTTP methods for REST APIs: _GET_ and _POST_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, the application has been deployed to [Heroku](https://ku-cbc-budget-tracker.herokuapp.com/) through a **CI/CD** pipeline, which also connects to a live **MongoDb Atlas** database.
-
-In addition, the application has been coded with a _mobile first_ approach in mind.
+The application has been coded with a _mobile first_ approach in mind. It allows users to perform CRUD operations against a live **MongoDb** database using the following HTTP methods for REST APIs: _GET_ and _POST_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, the application has been deployed to [Heroku](https://ku-cbc-budget-tracker.herokuapp.com/) through a **CI/CD** pipeline, which also connects to a live **MongoDb Atlas** database. In addition, the application can run in **connected** or **disconnected** mode, and can be installed in a variety of mobile devices (core characteristics of a **PWA** application).
 
 ## License
 
