@@ -97,7 +97,9 @@ node server.js
 
 ## Usage
 
-The application has been coded to meet the criteria for a [Progressive Web Application (PWA)](https://web.dev/progressive-web-apps/). It brings the core features of a PWA, namely, the application is capable of offering the best features from a **native** application and a **web** application, is reliable since it can run in connected as well as in **disconnected** mode, and it is **installable** to mobile devices.
+The application has been coded to meet the criteria for a [Progressive Web Application (PWA)](https://web.dev/progressive-web-apps/). It brings the core features of a PWA, namely, the application is capable of offering the best features from a **native** application and a **web** application, is reliable since it can run in connected as well as in **disconnected** mode, and it is **installable** to mobile devices. The following screenshot from [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) shows the statistics for the deployed application:
+
+![The application PWA features.](./images/pwa.png)
 
 In addition, it has been coded to perform CRUD operations against a live **MongoDb** database using the following HTTP methods for REST APIs: _GET_ and _POST_. If you want to run the application in your development environment, make sure to follow the [Installation](#installation) instructions above; otherwise, the application has been deployed to [Heroku](https://ku-cbc-budget-tracker.herokuapp.com/) through a **CI/CD** pipeline, which also connects to a live **MongoDb Atlas** database.
 
