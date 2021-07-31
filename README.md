@@ -91,15 +91,7 @@ A JSON file containing these dependencies is included with this project. To set 
 npm install
 ```
 
-Using **Node.Js** console, run the following command to seed the database with sample data:
-
-```bash
-npm run seed
-```
-
-A video demonstrating how to seed a similar database from the command line is provided [here](https://drive.google.com/file/d/1cxB7I41wX6AWwSDz2RDOpIf9_2EbgBuZ/view).
-
-Once the database is created and seeded with sample data, run the following command to start the application:
+Once the required packages are installed, run the following command to start the application:
 
 ```bash
 node server.js
