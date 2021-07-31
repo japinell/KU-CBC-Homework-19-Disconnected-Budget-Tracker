@@ -1,6 +1,8 @@
 # Unit 19 PWA Homework: Online/Offline Budget Tracker
 
-This is **Progressive Web Application (PWA)** to track deposits and expenses that uses **MongoDb** as the persistent storage, **Mongoose** as the object modelling, **ExpressJS** as the web framework, and **NodeJS** as the Javascript runtime environment. The application has been coded to meet the core features for a [PWA](https://web.dev/progressive-web-apps/) application, namely, it offers the potential to tap into the best features seen in **native** applications and the best features seen in **web** applications, it runs in **connected** as well as in **disconnected** mode, and it is **installable** to mobile devices without regard to system architecture (it can run in web and in Android-, iOS-, and Windows-powered devices).
+This is **Progressive Web Application (PWA)** to track deposits and expenses that uses **MongoDb** as the persistent storage, **Mongoose** as the object modelling, **ExpressJS** as the web framework, and **NodeJS** as the Javascript runtime environment.
+
+It has been coded to meet the core features for a [PWA](https://web.dev/progressive-web-apps/) application, namely, it offers the potential to tap into the best features seen in **native** applications and the best features seen in **web** applications, it runs in **connected** as well as in **disconnected** mode, and it is **installable** to mobile devices without regard to system architecture (it can run in web and in Android-, iOS-, and Windows-powered devices).
 
 The application's functional features are described in the following user story, business context, and acceptance criteria:
 
