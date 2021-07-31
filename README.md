@@ -99,7 +99,7 @@ node server.js
 
 The application has been coded to meet the criteria for a [Progressive Web Application (PWA)](https://web.dev/progressive-web-apps/). It brings the core features of a PWA, namely, the application is capable of offering the best features from a **native** application and a **web** application, is reliable since it can run in connected as well as in **disconnected** mode, and it is **installable** to mobile devices.
 
-The following screenshot from [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) shows the statistics for the deployed application supporting that it is a PWA application:
+The following screenshot from [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) shows the statistics for the deployed application, which also demonstrates that the application is a PWA:
 
 ![The application PWA features.](./images/pwa.png)
 
